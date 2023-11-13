@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\loginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BusinesController;
 use App\Http\Controllers\CajaController;
 use App\Http\Controllers\DetalleController;
 use App\Http\Controllers\DriverController;
@@ -23,11 +24,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('login', [loginController::class, 'login']);
 Route::post('register', [RegisterController::class, 'register']);
-Route::post('driverStore', [DriverController::class, 'storeDriver']);
 
+// Drivers
+Route::post('driverStore', [DriverController::class, 'storeDriver']);
 Route::get('drivers', [DriverController::class, 'getDriver']);
+
 Route::get('user', [UserController::class, 'getUsers']);
+
+// Sucursales
 Route::get('getSucursal', [SucursalController::class, 'getSucursal']);
+
 
 // caja_repartidor
 Route::post('caja', [CajaController::class, 'caja']);
@@ -39,3 +45,7 @@ Route::get('get_caja/{fecha?}/{sucursal?}', [CajaController::class, 'buscar']);
 
 // Detalles
 Route::get('detalles', [DetalleController::class, 'getDetalles']);
+
+
+// Busines
+Route::get('busines/{sucursal_id?}', [BusinesController::class, 'getBusines']);

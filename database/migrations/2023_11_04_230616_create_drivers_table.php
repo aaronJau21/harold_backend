@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('identity_number')->nullable();  //sincronizar
             $table->string('identity_type')->nullable();  //sincronizar
             $table->string('password')->nullable();  //sincronizar
+            $table->foreignId('role_id')->constrained();
             $table->foreignId('sucursal_id')->constrained();  //sincronizar
             $table->timestamps();  //sincronizar
             $table->integer('status')->nullable(); //sincronizar

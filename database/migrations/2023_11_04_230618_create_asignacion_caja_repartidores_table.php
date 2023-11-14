@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('asignacion_caja_repartidores', function (Blueprint $table) {
             $table->id();
             $table->float('monto')->nullable();
-            $table->string('fecha')->nullable();
+            $table->string('hora')->nullable();
             $table->foreignId('detalle_id')->constrained();
             $table->text('observaciones')->nullable();
             $table->integer('pagado')->nullable();
@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('createBy')->nullable();
             $table->string('payBy')->nullable();
             $table->foreignId('driver_id')->constrained();
-            $table->string('businessMandaditosId')->nullable();
+            $table->foreignId('busine_id')->constrained();
+            $table->string('fecha')->nullable();
         });
     }
 

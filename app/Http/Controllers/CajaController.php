@@ -49,7 +49,8 @@ class CajaController extends Controller
             'createBy' => $request->createBy,
             'payBy' => $request->payBy,
             'fecha' => $request->fecha,
-            'busine_id' => $request->has('busine_id') ? $request->busine_id : null
+            'busine_id' => $request->has('busine_id') ? $request->busine_id : null,
+            'sucursal_id' => $request->sucursal_id
         ]);
 
         return response()->json([
@@ -57,9 +58,11 @@ class CajaController extends Controller
         ]);
     }
 
-    public function get_caja_repartidor()
+    public function get_caja_repartidor($sucursal_id = null, $fecha = null)
     {
-        $caja_repartidores = CajaRepartidor::get();
+        $caja_repartidores = CajaRepartidor::where('sucursal_id', $sucursal_id)
+            ->whereDate('fecha', $fecha)
+            ->get();
         $result = [];
 
         foreach ($caja_repartidores as $caja_repartidore) {
@@ -76,7 +79,7 @@ class CajaController extends Controller
                 'detalle_id' => $caja_repartidore->detalle_id,
                 'estado' => $caja_repartidore->pagado,
                 'observaciones' => $caja_repartidore->observaciones,
-                'hora' => $caja_repartidore->fecha,
+                'fecha' => $caja_repartidore->fecha,
                 'createBy' => $caja_repartidore->createBy,
                 'payBy' => $caja_repartidore->payBy
             ];

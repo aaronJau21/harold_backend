@@ -22,7 +22,7 @@ class CajaRepartidor extends Model
         'driver_id',
         'businessMandaditosId',
         'fecha',
-        'Sucursal_id',
+        'sucursal_id',
         'busine_id'
     ];
 

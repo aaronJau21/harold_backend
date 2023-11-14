@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('createBy')->nullable();
             $table->string('payBy')->nullable();
             $table->foreignId('driver_id')->constrained();
-            $table->foreignId('Sucursal_id')->constrained();
+            $table->foreignId('sucursal_id')->constrained();
             $table->string('busine_id')->nullable();
             $table->string('fecha')->nullable();
         });

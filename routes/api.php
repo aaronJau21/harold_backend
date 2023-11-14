@@ -39,7 +39,7 @@ Route::get('getSucursal', [SucursalController::class, 'getSucursal']);
 
 // caja_repartidor
 Route::post('caja', [CajaController::class, 'caja']);
-Route::get('get_caja_repartidor/{}', [CajaController::class, 'get_caja_repartidor']);
+Route::get('get_caja_repartidor/{sucursal_id?}/{fecha?}', [CajaController::class, 'get_caja_repartidor']);
 Route::post('caja_repartidor', [CajaController::class, 'caja_repartidor']);
 Route::put('updateEstado/{id}', [CajaController::class, 'updateEstado']);
 Route::delete('delete_caja_repartidor/{id}', [CajaController::class, 'delete']);

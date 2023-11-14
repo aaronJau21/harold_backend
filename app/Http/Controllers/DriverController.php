@@ -27,14 +27,18 @@ class DriverController extends Controller
         ]);
     }
 
-    public function getDriver()
+    public function getDriver($sucursal_id = null)
+    {
+        $drivers = Driver::where('sucursal_id', $sucursal_id)->get();
+
+        return response()->json([
+            'drivers' => $drivers
+        ]);
+    }
+
+    public function getDriverSelect()
     {
         $drivers = Driver::get();
-        if ($drivers->isEmpty()) {
-            return response()->json([
-                'Messages' => 'No hay Drivers'
-            ]);
-        }
 
         return response()->json([
             'drivers' => $drivers

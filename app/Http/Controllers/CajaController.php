@@ -81,15 +81,16 @@ class CajaController extends Controller
         };
 
         return response()->json([
-            'body' => $result
+            'body' => $result,
         ]);
     }
 
-    public function updateEstado($id)
+    public function updateEstado(Request $request,$id)
     {
         $caja_repartidor = CajaRepartidor::find($id);
         $caja_repartidor->update([
-            'pagado' => 1
+            'pagado' => 1,
+            'payBy' => $request->payBy
         ]);
         return response()->json([
             'caja_repartidor' => $caja_repartidor

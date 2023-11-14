@@ -27,9 +27,11 @@ Route::post('register', [RegisterController::class, 'register']);
 
 // Drivers
 Route::post('driverStore', [DriverController::class, 'storeDriver']);
-Route::get('drivers', [DriverController::class, 'getDriver']);
+Route::get('drivers/{sucursal_id?}', [DriverController::class, 'getDriver']);
+Route::get('drivers-select', [DriverController::class, 'getDriverSelect']);
 
-Route::get('user', [UserController::class, 'getUsers']);
+// Users
+Route::get('user/{sucursal_id?}', [UserController::class, 'getUsers']);
 
 // Sucursales
 Route::get('getSucursal', [SucursalController::class, 'getSucursal']);
@@ -37,7 +39,7 @@ Route::get('getSucursal', [SucursalController::class, 'getSucursal']);
 
 // caja_repartidor
 Route::post('caja', [CajaController::class, 'caja']);
-Route::get('get_caja_repartidor', [CajaController::class, 'get_caja_repartidor']);
+Route::get('get_caja_repartidor/{}', [CajaController::class, 'get_caja_repartidor']);
 Route::post('caja_repartidor', [CajaController::class, 'caja_repartidor']);
 Route::put('updateEstado/{id}', [CajaController::class, 'updateEstado']);
 Route::delete('delete_caja_repartidor/{id}', [CajaController::class, 'delete']);

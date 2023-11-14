@@ -8,9 +8,9 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-    public function getUsers()
+    public function getUsers($sucursal_id=null)
     {
-        $users = User::get();
+        $users = User::where('sucursal_id', $sucursal_id)->get();
 
         return response()->json([
             'users' => $users

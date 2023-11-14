@@ -42,12 +42,14 @@ class CajaController extends Controller
         $caja_repartidor = CajaRepartidor::create([
             'driver_id' => $request->driver_id,
             'monto' => $request->monto,
-            'fecha' => $hora_actual,
+            'hora' => $hora_actual,
             'observaciones' => $request->observaciones,
             'pagado' => 0,
             'detalle_id' => $request->detalle_id,
             'createBy' => $request->createBy,
-            'payBy' => $request->payBy
+            'payBy' => $request->payBy,
+            'fecha' => $request->fecha,
+            'busine_id' => $request->has('busine_id') ? $request->busine_id : null
         ]);
 
         return response()->json([
@@ -85,7 +87,7 @@ class CajaController extends Controller
         ]);
     }
 
-    public function updateEstado(Request $request,$id)
+    public function updateEstado(Request $request, $id)
     {
         $caja_repartidor = CajaRepartidor::find($id);
         $caja_repartidor->update([

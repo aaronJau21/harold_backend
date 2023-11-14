@@ -13,14 +13,17 @@ class CajaRepartidor extends Model
     protected $table = 'asignacion_caja_repartidores';
     protected $fillable = [
         'monto',
-        'fecha',
+        'hora',
         'detalle_id',
         'observaciones',
         'pagado',
         'createBy',
         'payBy',
         'driver_id',
-        'businessMandaditosId'
+        'businessMandaditosId',
+        'fecha',
+        'Sucursal_id',
+        'busine_id'
     ];
 
 

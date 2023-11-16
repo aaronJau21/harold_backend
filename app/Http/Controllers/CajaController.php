@@ -120,4 +120,17 @@ class CajaController extends Controller
         // Puedes devolver o manipular los datos según tus necesidades
         return $datos;
     }
+
+    public function cerrarCaja($id)
+    {
+        $caja = Caja::find($id);
+
+        $caja->update([
+            'cerrada' => 1
+        ]);
+
+        return response()->json([
+            'message' => 'Se cerro'
+        ]);
+    }
 }

@@ -44,4 +44,17 @@ class DriverController extends Controller
             'drivers' => $drivers
         ]);
     }
+
+    public function delete($id)
+    {
+        $driver = Driver::find($id);
+
+        $driver->update([
+            'status' => 0
+        ]);
+
+        return response()->json([
+            'message' => 'Se desactivo'
+        ]);
+    }
 }

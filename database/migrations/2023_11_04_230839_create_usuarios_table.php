@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->timestamps();
             $table->foreignId('role_id')->constrained();
-            $table->foreignId('sucursal_id')->constrained();
+            $table->string('sucursal_id')->nullable();
+            // $table->foreignId('sucursal_id')->constrained();
         });
     }
 
